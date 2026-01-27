@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <section>
+        <p>Premium Builds, Animations & Renders</p>
+        <h2>Creating Minecraft Builds and 3D renders</h2>
+        <video loop muted autoplay src="videos/u-wing_360_4k.mov"></video>
+    </section>
+    <section>
+        <p>High-Quality Rendering</p>
+        <h2>Making custom Minecraft Animations & Renders</h2>
+        <video loop muted autoplay src="videos/waystation_animation_merrycharlie.mov"></video>
+    </section>
+    <section>
+        <p>Custom Minecraft Builds & Resources</p>
+        <h2>High-quality Minecraft builds and Resources</h2>
+        <img src="images/WIP_merrycharlie.jpg" alt="">
+    </section>
+
+    
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/bundled/lenis.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script>
+
+<script>
+  // GSAP + ScrollTrigger
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Lenis smooth scroll
+  const lenis = new Lenis({
+    duration: 1.2,          // higher = smoother / slower
+    smoothWheel: true,
+    smoothTouch: false,     // set true if you also want smoothing on touch
+    wheelMultiplier: 1.0
+  });
+
+  // Drive Lenis with requestAnimationFrame
+  function raf(time) {
+    lenis.raf(time);
+    requestAnimationFrame(raf);
+  }
+  requestAnimationFrame(raf);
+
+  // Keep ScrollTrigger in sync with Lenis
+  lenis.on("scroll", ScrollTrigger.update);
+
+  gsap.ticker.add((time) => {
+    lenis.raf(time * 1000);
+  });
+  gsap.ticker.lagSmoothing(0);
+
+  // Optional: remove native smooth scroll to avoid double-smoothing
+  document.documentElement.style.scrollBehavior = "auto";
+</script>
+
+</body>
+</html>
