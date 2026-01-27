@@ -1,68 +1,75 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <section>
-        <p>Premium Builds, Animations & Renders</p>
-        <h2>Creating Custom Minecraft builds and 3D renders</h2>
-        <video  autoplay muted loop playsinline preload="auto" src="videos/u-wing_360.mp4"></video>
-    </section>
-    <section>
-        <p>High-Quality Rendering</p>
-        <h2>Custom Minecraft animations and renders</h2>
-        <video autoplay muted loop playsinline preload="auto" src="videos/waystation_animation_merrycharlie.mov"></video>
-    </section>
-    <section>
-        <p>Custom Builds & Resources</p>
-        <h2>High-Quality Minecraft Builds and Resources</h2>
-        <img src="images/3d-render-recent-project.jpg" alt="">
-    </section>
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Document</title>
+      <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+      <header>
+        <ul>
+          <li><a href="index.html">YouTube</a></li>
+          <li><a href="index.html">Patreon</a></li>
+          <li><a href="index.html">Gumroad</a></li>
+          <li><a href="index.html">Instagram</a></li>
+        </ul>
+      </header>
+      <section>
+          <p>Premium Builds, Animations & Renders</p>
+          <h2>Creating Custom Minecraft builds and 3D renders</h2>
+          <video  autoplay muted loop playsinline preload="auto" src="videos/u-wing_360.mp4"></video>
+      </section>
+      <section>
+          <p>High-Quality Rendering</p>
+          <h2>Custom Minecraft animations and renders</h2>
+          <video autoplay muted loop playsinline preload="auto" src="videos/waystation_animation_merrycharlie.mov"></video>
+      </section>
+      <section>
+          <p>Custom Builds & Resources</p>
+          <h2>High-Quality Minecraft Builds and Resources</h2>
+          <img src="images/3d-render-recent-project.jpg" alt="">
+      </section>
 
-    
-    <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/bundled/lenis.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script>
+      
+      <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/bundled/lenis.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script>
 
-<script>
-  // GSAP + ScrollTrigger
-  gsap.registerPlugin(ScrollTrigger);
+  <script>
+    // GSAP + ScrollTrigger
+    gsap.registerPlugin(ScrollTrigger);
 
-  // Lenis smooth scroll
-  const lenis = new Lenis({
-    duration: 1.2,          // higher = smoother / slower
-    smoothWheel: true,
-    smoothTouch: false,     // set true if you also want smoothing on touch
-    wheelMultiplier: 1.0
-  });
+    // Lenis smooth scroll
+    const lenis = new Lenis({
+      duration: 1.2,          // higher = smoother / slower
+      smoothWheel: true,
+      smoothTouch: false,     // set true if you also want smoothing on touch
+      wheelMultiplier: 1.0
+    });
 
-  // Drive Lenis with requestAnimationFrame
-  function raf(time) {
-    lenis.raf(time);
+    // Drive Lenis with requestAnimationFrame
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
     requestAnimationFrame(raf);
-  }
-  requestAnimationFrame(raf);
 
-  // Keep ScrollTrigger in sync with Lenis
-  lenis.on("scroll", ScrollTrigger.update);
+    // Keep ScrollTrigger in sync with Lenis
+    lenis.on("scroll", ScrollTrigger.update);
 
-  gsap.ticker.add((time) => {
-    lenis.raf(time * 1000);
-  });
-  gsap.ticker.lagSmoothing(0);
+    gsap.ticker.add((time) => {
+      lenis.raf(time * 1000);
+    });
+    gsap.ticker.lagSmoothing(0);
 
-  // Optional: remove native smooth scroll to avoid double-smoothing
-  document.documentElement.style.scrollBehavior = "auto";
-</script>
+    // Optional: remove native smooth scroll to avoid double-smoothing
+    document.documentElement.style.scrollBehavior = "auto";
+  </script>
 
-</body>
+  </body>
 
-</html>
-
+  </html>
 
 
 
