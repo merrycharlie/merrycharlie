@@ -209,24 +209,23 @@ section:nth-of-type(4) {
 }
 
 section:nth-of-type(4) ul {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 4em;
     width: 100%;
-    justify-content: space-around;
-    align-items: start;
+    padding: 0 4em;
 }
+
 
 
 section:nth-of-type(4) li {
     position: relative;
     display: flex;
     flex-direction: column;
-    justify-content: end;
+    justify-content: flex-end;
 
     padding: 2em;
-    margin-bottom: 4em;
     gap: .5em;
-    width: 45%;
     height: 30em;
 
     overflow: hidden;
@@ -237,6 +236,7 @@ section:nth-of-type(4) li {
         rgba(0, 0, 0, 0) 60%
     );
 }
+
 
 section:nth-of-type(4) p {
     color: #e2e5ff;
@@ -290,6 +290,21 @@ section:nth-of-type(3)::after {
         display: none;
     }
 
+   section:nth-of-type(4) ul {
+        grid-template-columns: 1fr;
+        gap: 2em;
+        padding: 0 1rem;
+    }
+
+    section:nth-of-type(4) li {
+        padding: 1em;
+        gap: 0;
+    }
+
+    section:nth-of-type(4) h2 {
+        font-size: 1.6em;
+    }
+
     :root {
         --section-padding: 4rem 1rem;
     }
@@ -329,6 +344,7 @@ section:nth-of-type(3)::after {
         );
     }
 }
+
 
 
 
