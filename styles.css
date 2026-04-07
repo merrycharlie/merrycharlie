@@ -61,13 +61,14 @@ h3 {
     letter-spacing: 0.001em;
     line-height: 1;
 
-    width: 95%;
+    width: 92%;
 }
 
 h2 {
-    font-size: 5rem;
+    font-size: 6rem;
     text-align: left;
     text-shadow: 0.1em 0.1em 0.2em rgba(0, 0, 0, 0.57);
+    width: 95%;
 }
 
 /* section:nth-of-type(1) h2 {
@@ -245,7 +246,7 @@ section:nth-of-type(4) p {
 }
 
 section:nth-of-type(4) h2 {
-    font-size: 3rem;
+    font-size: 2.5rem;
 }
 
 section:nth-of-type(4) a::after {
@@ -304,12 +305,15 @@ section:nth-of-type(3)::after {
 
     section:nth-of-type(4) h2 {
         font-size: 3em;
+        width: 100%;
     }
 
     :root {
         --section-padding: 4rem 1rem;
     }
 
+
+    /* extra? */
     h2 {
         font-size: 4rem;
         line-height: 1.3;
