@@ -1,9 +1,10 @@
 /* =========================
    Fonts
 ========================= */
+
 @font-face {
     font-family: "Header";
-    src: url("./fonts/Satoshi-Variable.ttf") format("truetype");
+    src: url("../fonts/Satoshi-Variable.ttf") format("truetype");
 }
 
 @font-face {
@@ -83,6 +84,7 @@ a {
 
 p {
     font-family: "Body", monospace;
+    font-size: 1rem;
     text-shadow: 0.1em 0.1em 0.2em rgba(0, 0, 0, 0.57);
     line-height: 0;
     text-align: left;
@@ -227,8 +229,8 @@ section:nth-of-type(4) li {
     flex-direction: column;
     justify-content: flex-end;
 
-    padding: 2em;
-    gap: .5em;
+    padding: 1em 2em;
+    gap: 0;
     height: 30em;
 
     overflow: hidden;
@@ -285,6 +287,65 @@ section:nth-of-type(3)::after {
         rgba(0, 0, 0, 0.45) 30%,
         rgba(0, 0, 0, 0.0) 60%
     );
+}
+
+/* =========================
+   Lightbox overlay
+========================= */
+.lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: rgba(0, 0, 0, 0.92);
+    padding: 2rem;
+
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.35s ease, visibility 0.35s ease;
+}
+
+.lightbox.open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.lightbox-img {
+    max-width: 95vw;
+    max-height: 90vh;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+
+    transform: scale(0.97);
+    transition: transform 0.35s ease;
+}
+
+.lightbox.open .lightbox-img {
+    transform: scale(1);
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 1.5rem;
+    right: 2rem;
+
+    background: none;
+    border: none;
+    color: var(--color-primary);
+    font-size: 3rem;
+    line-height: 1;
+    cursor: pointer;
+
+    transition: color 0.3s ease;
+}
+
+.lightbox-close:hover {
+    color: #e2e5ff;
 }
 
 @media (max-width: 1270px) {
